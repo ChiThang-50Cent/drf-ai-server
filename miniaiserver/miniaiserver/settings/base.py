@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'users.apps.UsersConfig',
+    'ai_models.apps.AiModelsConfig',
 ]
 
 MIDDLEWARE = [

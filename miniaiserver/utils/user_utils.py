@@ -24,10 +24,18 @@ def get_api_key(email: str) -> UUID:
     user = User.objects.get(email=email)
     return user.api_key.key
 
-def search_api_key(api_key: str) -> bool:
+def search_api_key(api_key: str) -> API_Key:
     key = API_Key.objects.filter(key__exact=UUID(api_key))
     
     if not key.exists():
         return None
     
     return key.get(key=UUID(api_key))
+
+def is_authencated_by_key(api_key: str) -> bool:
+    key = search_api_key(api_key)
+
+    if not key:
+        return False
+    
+    return True
